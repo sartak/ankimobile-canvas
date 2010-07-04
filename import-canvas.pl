@@ -27,10 +27,12 @@ sub add_or_replace_dbwise {
     if (my ($old) = $dbh->selectrow_array('select value from deckVars where key=?;', {}, $key)) {
         my $value = add_or_replace_stringwise($old, $new, $key);
         $dbh->do('update deckVars set value=? where key=?', {}, $value, $key);
+        print "Rewrote $key\n";
     }
     else {
         my $value = add_or_replace_stringwise('', $new, $key);
         $dbh->do('insert into deckVars (key, value) values (?, ?);', {}, $key, $value);
+        print "Added $key\n";
     }
 }
 
