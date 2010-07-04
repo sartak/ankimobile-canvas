@@ -1,8 +1,15 @@
 function add_canvas (id) {
-    if (!document.getElementById(id)) {
+    var parent_element = document.getElementById(id);
+    if (!parent_element) {
         return;
     }
-    document.getElementById(id).innerHTML = '<canvas id="ianki_webcanvas" height="250" width="250">canvas</canvas><ul class="canvas_links"> <li><a href="#" onclick="document.webcanvas.clear(); window.event.stopPropagation();">clear</a></li> <li><a href="#" onclick="document.webcanvas.revertStroke(); window.event.stopPropagation();">undo stroke</a></li> <li><a href="#" onclick="document.webcanvas.replay(); window.event.stopPropagation();">replay</a></li></ul>';
+
+    parent_element.innerHTML = '<canvas id="ianki_webcanvas" height="250" width="250">canvas</canvas><ul class="canvas_links"> <li><a href="#" onclick="document.webcanvas.clear();">clear</a></li> <li><a href="#" onclick="document.webcanvas.revertStroke();">undo stroke</a></li> <li><a href="#" onclick="document.webcanvas.replay();">replay</a></li></ul>';
+
+    /* stop bubbling the click events up to AnkiMobile's tap handlers */
+    parent_element.onclick = function () {
+        window.event.stopPropagation();
+    };
 
     document.webcanvas = null;
     var canvas = document.getElementById("ianki_webcanvas");
