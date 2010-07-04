@@ -1,0 +1,15 @@
+#ianki_webcanvas {                                                                  
+    border: 2px solid black;
+}
+.canvas_links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: .6em;
+}
+.canvas_links li {
+    display: inline;
+}
+.canvas_links a {
+    color: #0000FF;
+}
