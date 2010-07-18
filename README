@@ -3,8 +3,11 @@ drawing scratchpad primarily for kanji review.
 
 AnkiMobile: http://ichi2.net/anki/wiki/AnkiMobile
 
-Using this currently requires a bit of manual labor. Future versions will
-include a plugin or something similarly foolproof.
+The recommended way to install this is using Damien Elmes's "Embed scratchpad
+for AnkiMobile" plugin available through Anki's "Download Shared Plugin"
+functionality.
+
+If for some reason you want to install it manually, here's how.
 
 First, include the following in the card templates where you want a canvas:
 
